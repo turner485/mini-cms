@@ -1,0 +1,53 @@
+.post-content-section, .related-posts-section {
+	max-width: 960px;
+	margin: 0 auto;
+	width: 100%;
+
+	.post-section-wrapper {
+		padding-top: 25px;
+
+		.post-content {
+
+			h1 {
+				font-size: 42px;
+				text-transform: capitalize;
+				color: $primary;
+				width: 100%;
+				text-align: left;
+				margin: 0 0 5px;
+			}
+
+			span {
+				width: 100%;
+				font-size: 16px;
+				font-weight: 500;
+				color: $secondary;
+			}
+		}
+	}
+
+	.related-posts-section {
+		.wrapper {
+			h2 {
+				font-size: 38px;
+				text-transform: capitalize;
+				color: $primary;
+				width: 100%;
+				margin: 20px 0;
+			}
+
+			.related-posts {
+				h3 {
+					font-size: 21px;
+					color: $primary;
+					margin: 0 0 10px;
+				}
+
+				img {
+
+				}
+			}
+		}
+	}
+}
+

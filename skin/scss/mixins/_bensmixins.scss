@@ -1,0 +1,172 @@
+/****=== Variable Declarations For Media Querys ===****/
+
+	$laptop: 1400px;
+	$small-desk: 1200px;
+	$large-tab: 1225px;
+	$tablet: 770px;
+	$large-phone: 450px;
+	$med-phone: 380px;
+	$small-phone: 325px;
+
+	$page-width: 960px!default;
+    $laptop-port: 600px!default;
+	$desk-port: 900px!default;
+	$wide-port: 1400px!default;
+
+	$palm-grids: 4!default; //4 COLLUMN PAGE
+	$lap-grids: (3, 4, 5, 6)!default; // 4 and 5 collumn grids
+	$desk-grids: (3, 5, 6, 8)!default; // 6 and 8 collumn grid
+
+    $breakpoints : (
+    'palm' 0 $laptop-port $palm-grids,
+    'lap' $laptop-port $desk-port $lap-grids,
+    'desk' $desk-port 0 $desk-grids
+	);
+
+    
+/****=== Media Query ===****/
+
+	@mixin media-query($type, $breakpoint: $laptop-port) {
+	  @if $type == "min" {
+	    @media screen and (min-width: $breakpoint) { @content }
+	  }
+	  @else if $type == "max" {
+	    @media screen and (max-width: $breakpoint - 1px) { @content }
+	  }
+	  @else if $type == "palm" {
+	    @media screen and (max-width: $laptop-port - 1px) { @content }
+	  }
+	  @else if $type == "lap" {
+	    @media screen and (min-width: $laptop-port) { @content }
+	  }
+	  @else if $type == "desk" {
+	    @media screen and (min-width: $desk-port) { @content }
+	  }
+	  @else if $type == "wide" {
+	    @media screen and (min-width: $wide-port) { @content }
+	  }
+	}
+
+	/*
+	  EXAMPLE:
+
+	  @include media-query-height(min, 640px){}
+	*/
+
+
+	@mixin media-screen-sm($point){
+		@media all and (max-width: $point){
+			@content;
+		}
+	}
+
+/****=== Placeholders ===****/
+
+	@mixin placeholder {
+	    &.placeholder { @content; }
+	    &:-moz-placeholder { @content; }
+	    &::-moz-placeholder { @content; }
+	    &:-ms-input-placeholder { @content; }
+	    &::-webkit-input-placeholder { @content; }
+	}
+
+	/*
+		EXAMPLE:
+
+		@include placeholder {
+			color: #ffffff
+			text-decoration: underline;
+		}
+	*/
+
+/****=== Font Size px to rem ===****/
+
+	@function calculateRem($size) {
+	  $remSize: $size / 16px;
+	  @return $remSize * 1rem;
+	}
+
+	@mixin font-size($size) {
+	  font-size: $size;
+	  font-size: calculateRem($size);
+	}
+
+	/*
+		EXAMPLE:
+		
+		@include font-size(14px)
+	*/
+
+/****=== Clearfix ===****/
+
+	@mixin cf {
+	  *zoom: 1;
+	  &:before, &:after {
+	    content: " ";
+	    display: table;
+	  }
+	  &:after {
+	    clear: both;
+	  }
+	}
+
+	/*
+		EXAMPLE:
+
+		@extend cf;
+	*/
+
+/****=== Colour Themes ===****/
+
+	@mixin theme($name, $color) {
+
+	  $primary: $color;
+	  $secondary: lighten(adjust-hue($color, 20), 10%);
+
+	  .#{$name} {
+	    .text-color {
+	      color: $primary;
+	    }
+	    .background-col {
+	      background: $secondary;
+	    }
+	  }
+	}
+
+	/*
+		EXAMPLE:
+
+		@include theme(example-theme, orange);
+	*/	
+
+	/****=== Center Align ANYTHING!!! ===****/
+
+	@mixin center($position) {
+	  position: absolute;
+	  
+	  @if $position == 'vertical' {
+	    top: 50%;
+	    -webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	  }
+	  @else if $position == 'horizontal' {
+	    left: 50%;
+	    -webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	    transform: translate(-50%);
+	  }
+	  @else if $position == 'both' {
+	    top: 50%;
+	    left: 50%;
+	    -webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+	  }
+	}
+
+	/*
+		EXAMPLE:
+
+		@include center(both);
+	*/

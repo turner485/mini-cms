@@ -1,0 +1,45 @@
+
+.footer {
+	background: $secondary;
+	height: 100px;
+	margin-top: 35px;
+	border-top: 5px solid $primary;
+	width: 100%;
+	.footer-wrapper {
+		max-width: 915px;
+		margin: auto;
+		.footer-block-left {
+			ul {
+				padding-top: 10px;
+
+				li {
+					float: none;
+					padding: 0 0;
+					display: block;
+					color: white;
+				}
+			}
+		}
+		.footer-block-right {
+			.user-bottom {
+				float: right;
+				position: relative;
+				top: 20px;
+				background: $primary;
+				padding: 10px;
+				border-radius: 5px;
+
+				i {
+					font-size: 28px;
+					color: white;
+					margin-bottom: 0;
+					margin-right: 5px;
+
+					&:last-child {
+						margin: 0;
+					}
+				}
+			}	
+		}
+	}
+}

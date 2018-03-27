@@ -1,0 +1,93 @@
+
+input[type="file"] {
+	color: white;
+
+}
+
+.view-post-section, .view-users-section, .view-categories-section {
+	margin: 0 15px;
+
+	table {
+		width: 100%;
+		border: 2px solid white;
+
+		th, td, tr {
+			text-align: center;
+			border-bottom: 2px solid white;
+			border-right: 2px solid white;
+			padding: 5px;
+			font-weight: 300;
+			color: white;
+
+			a {
+				color: white;
+				font-weight: 500;
+
+				&:hover {
+					color: white;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.insert-post-section, .edit-post-section {
+
+	.form-group {
+		margin-bottom: 45px;
+	}
+
+	select {
+		margin-top: 5px;
+	}
+
+	img {
+		margin: 15px 0;
+	}
+
+	label {
+		font-weight: 300;
+		color: white
+	}
+
+	.submit-btn {
+		text-align: center;
+		margin-top: 15px;
+	}
+}
+
+.mce-has-close {
+	display: none!important;
+}
+
+.insert-category-section, .edit-category-section, .insert-users-section, .edit-users-section {
+	text-align: center;
+	
+	input[type="text"] {
+		float: left;
+		margin-bottom: 10px;
+	}
+
+	label {
+		color: white;
+		letter-spacing: 1px;
+		font-size: 16px;
+		text-decoration: underline;
+	}
+	p {
+	    text-align: left;
+	    color: white;
+	    font-size: 16px;
+	    letter-spacing: 1px;
+	    font-weight: 700; 
+	}
+}
+
+.insert-category-section {
+	input[type="text"] {
+		float: none;
+		margin-bottom: 10px;
+	}
+}
+
